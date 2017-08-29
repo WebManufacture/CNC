@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="576.84375"
+   height="451.1875"
+   id="svg2"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="lemmling_Abstract_butterfly.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1793"
+     inkscape:window-height="1058"
+     id="namedview32"
+     showgrid="false"
+     inkscape:zoom="1.479"
+     inkscape:cx="334.1"
+     inkscape:cy="161.8"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3308">
+      <stop
+         id="stop3310"
+         style="stop-color:#e501ff;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3314"
+         style="stop-color:#e501ff;stop-opacity:0.00392157"
+         offset="0.5" />
+      <stop
+         id="stop3312"
+         style="stop-color:#e301ff;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2492">
+      <stop
+         id="stop2494"
+         style="stop-color:#a1ff00;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop2496"
+         style="stop-color:#a2ff00;stop-opacity:0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2422">
+      <stop
+         id="stop2424"
+         style="stop-color:#d6ff01;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop2426"
+         style="stop-color:#00c003;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3259">
+      <stop
+         id="stop3261"
+         style="stop-color:#16ff01;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3263"
+         style="stop-color:#0082ff;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3383">
+      <stop
+         id="stop3385"
+         style="stop-color:#fff101;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3387"
+         style="stop-color:#fff101;stop-opacity:0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       x1="176"
+       y1="461.36218"
+       x2="480.08057"
+       y2="461.36218"
+       id="linearGradient3306"
+       xlink:href="#linearGradient3308"
+       gradientUnits="userSpaceOnUse" />
+    <radialGradient
+       cx="318.08014"
+       cy="434.95306"
+       r="279.59375"
+       fx="318.08014"
+       fy="434.95306"
+       id="radialGradient3318"
+       xlink:href="#linearGradient2422"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0,0.9684509,-1.0593293,0,795.92711,169.31722)" />
+  </defs>
+  <g
+     transform="translate(-46.42,-233)"
+     id="layer1">
+    <path
+       d="m 47.09,233.7 c 0,0 94.81,99.1 76.61,167 c -14.1,52.5 2.9,78.9 2.9,78.9 c 0,0 18.8,-22.6 71.1,-14.7 c 42.4,6.3 57.5,23.3 57.5,23.3 c 0,0 -59.6,-43.2 -157.61,23.2 c 99.71,55.1 34.81,134.2 124.01,173.5 c 1.2,-0.2 37.7,-91.5 113.9,-97.8 c 76.3,6.3 112.7,97.6 113.9,97.8 c 89.2,-39.3 24.3,-118.4 124,-173.5 C 475.5,445 415.8,488.2 415.8,488.2 c 0,0 15.1,-17 57.5,-23.3 c 52.4,-7.9 71.1,14.7 71.1,14.7 c 0,0 17,-26.4 2.9,-78.9 c -18.2,-67.9 76.6,-167 76.6,-167 c 0,0 -187.1,39.6 -279.4,193.6 c 0.4,-11.9 1.4,-34.6 4.8,-62.3 c 4.6,-38 14.1,-59.3 14.1,-59.3 c 0,0 8.3,5.4 15.6,-2.9 c 9.9,-11.3 -4.6,-24.4 -15.6,-14.8 c -12.5,10.9 -26.9,85.9 -27.5,154.8 c -0.1,0.3 -0.3,0.5 -0.4,0.7 c -0.1,-0.2 -0.2,-0.5 -0.3,-0.7 C 334.6,373.9 320.1,298.9 307.6,288 c -11,-9.6 -25.4,3.5 -15.6,14.8 c 7.3,8.3 15.6,2.9 15.6,2.9 c 0,0 9.6,21.3 14.2,59.3 c 3.3,27.7 4.3,50.4 4.7,62.3 C 234.3,273.3 47.09,233.7 47.09,233.7 z m 69.61,53.4 c 0,0 56.3,13.5 114.9,57.1 c 73.5,54.7 103.6,130 103.6,130 l 0.3,-15 l 0.4,15 c 0,0 30,-75.3 103.5,-130 C 498,300.6 554.3,287.1 554.3,287.1 c 0,0 -40.9,68.8 -23.5,117.4 c 14,39.1 -1.7,49.3 -1.7,49.3 c 0,0 -94.5,-25 -143.7,57.2 c 71.4,-39.1 115.9,-22.1 156.2,-1 c 0,0 -43.7,28.2 -49.6,70.7 c -7,50.7 -31.3,62.8 -31.3,62.8 c 0,0 -33.4,-40.8 -61.7,-53.6 c -26.7,-12 -59.5,-17.7 -63.1,-18.3 l 0,-0.1 c 0,0 -0.3,0.1 -0.4,0.1 c 0,0 -0.3,-0.1 -0.3,-0.1 l 0,0.1 c -3.8,0.6 -36.5,6.3 -63.1,18.3 c -28.3,12.8 -61.7,53.6 -61.7,53.6 c 0,0 -24.4,-12.1 -31.4,-62.8 C 173.1,538.2 129.4,510 129.4,510 c 40.3,-21.1 84.8,-38.1 156.2,1 C 236.4,428.8 142,453.8 142,453.8 c 0,0 -15.8,-10.2 -1.8,-49.3 C 157.6,355.9 116.7,287.1 116.7,287.1 z"
+       id="path3321"
+       style="fill:black;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 318.9,440.8 c 24.7,47.1 -3.2,85 -3.2,85 c 0,0 -4.2,41.4 19.5,125.2 c 23.6,-83.8 19.4,-125.2 19.4,-125.2 c 0,0 -27.9,-37.9 -3.2,-85 l -16.2,14.3 l -16.3,-14.3 z"
+       id="path3201"
+       style="fill:black;fill-opacity:1;fill-rule:evenodd;stroke:black;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
+  </g>
+  <metadata
+     id="metadata30">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Open Clip Art Library</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Abstract butterfly</dc:title>
+        <dc:date>2008-07-08T08:11:56</dc:date>
+        <dc:description>For Lena</dc:description>
+        <dc:source>http://openclipart.org/detail/17643/abstract-butterfly-by-lemmling</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>lemmling</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>abstract</rdf:li>
+            <rdf:li>abstract</rdf:li>
+            <rdf:li>animal</rdf:li>
+            <rdf:li>animal</rdf:li>
+            <rdf:li>butterfly</rdf:li>
+            <rdf:li>butterfly</rdf:li>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>colour</rdf:li>
+            <rdf:li>colour</rdf:li>
+            <rdf:li>decorative</rdf:li>
+            <rdf:li>decorative</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>insect</rdf:li>
+            <rdf:li>insect</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>outline</rdf:li>
+            <rdf:li>outline</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>svg</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
