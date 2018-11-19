@@ -1,7 +1,30 @@
 use <../libraries/MCAD/involute_gears.scad>
 
 //test_gears();
-Gear();
+//Gear();
+
+pressure_angle = 28;
+hub_diameter = 0;
+rim_width = 0;
+circles=6;
+teeth=160;
+pitch=100;
+twist=0;
+height=5;
+bore_diameter = 10;
+
+gear (number_of_teeth=teeth,
+    circular_pitch=pitch,
+    pressure_angle=pressure_angle,
+    clearance = 0.2,
+    gear_thickness = height,
+    rim_thickness = height,
+    rim_width = rim_width,
+    hub_thickness = height,
+    hub_diameter = hub_diameter,
+    bore_diameter = bore_diameter,
+    circles=circles,
+    twist = twist/teeth);
 
 module SmoothHole() {
     translate([6.5,0,-1]) cylinder(r=1.5, h=10, $fn=6);

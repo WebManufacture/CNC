@@ -1,19 +1,25 @@
-balls = 10;
+balls = 9;
 quality = 78; //The number of segments
 height = 10;
 
+/*
+difference() {
+  ball_bearing_pad(balls=16,height=5);
+  cylinder(r=15/2, h=5);
+}*/
+/*
 ball_bearing_outside(
     balls = balls, 
     height = height,
     additional_balls_space = 0.2, 
     additional_radius = 3
   );
-
+*/
 ball_bearing_inside_half(
     balls = balls, 
     height = height,
     additional_balls_space = 0.2, 
-    shaft_diameter = 6,
+    shaft_diameter = 8,
     additional_space = 0.5
   );
 

@@ -20,7 +20,7 @@ GT2_WM = tooth_spacing (2,0.254);
 
 // tuneable constants
 
-teeth = 24;			// Number of teeth, standard Mendel T5 belt = 8, gives Outside Diameter of 11.88mm
+teeth = 44;			// Number of teeth, standard Mendel T5 belt = 8, gives Outside Diameter of 11.88mm
 profile = 12;		// 1=MXL 2=40DP 3=XL 4=H 5=T2.5 6=T5 7=T10 8=AT5 9=HTD_3mm 10=HTD_5mm 11=HTD_8mm 12=GT2_2mm 13=GT2_3mm 14=GT2_5mm
 
 motor_shaft = 8.1;	// NEMA17 motor shaft exact diameter = 5
@@ -42,7 +42,7 @@ nut_angle = 90;		// angle between nuts, standard = 90
 nut_shaft_distance = 1.2;	// distance between inner face of nut and shaft, can be negative.
 
 additional_tooth_width = 0.2; //mm
-additional_tooth_depth = 0.5; //mm
+additional_tooth_depth = 0.6; //mm
 
 // calculated constants
 

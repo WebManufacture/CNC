@@ -19,28 +19,25 @@
  
 use <../libraries/MCAD/involute_gears.scad>
 
-// tuneable constants
+PI = 3.141592651;
 
-
-
-
-
-
-; //NEMA17 motor shaft exact diameter = 5
 retainer_ht = 1.5;	// height of retainer flange over pulley, standard = 1.5
 idler_ht = 1.5;		// height of idler flange over pulley, standard = 1.5
-pulley_t_ht = 8;	// length of toothed part of pulley, standard = 12
-pulley_teeth = 36;			// Number of teeth, standard Mendel T5 belt = 8, gives Outside Diameter of 11.88mm
-gear_teeth = 78;
+pulley_t_ht = 10;	// length of toothed part of pulley, standard = 12
+pulley_teeth = 24;
+gear_teeth = 56;
+gear_thickness = 5;
+gear_distance = 4;
 inner_d = 8;
-
-balls = 14;
+balls = 13;
 quality = 78; //The number of segments
-
+pulley_full_height = pulley_t_ht + idler_ht + retainer_ht;
+pulley_OD = (2*((pulley_teeth*2)/(3.14159265*2)-0.254));
+gear_diameter = pulley_OD/2 + 8;
 // The following calls the pulley creation part, and passes the pulley diameter and tooth width to that module
 union(){
-    translate([0,0,16]){
-      ball_bearing_inside_half_top(
+    translate([0,0,gear_distance+pulley_full_height]){
+      ball_bearing_inside_half(
         balls = balls, 
         height = 10,
         additional_balls_space = 0.2, 
@@ -48,32 +45,39 @@ union(){
         additional_space = 0.5
       );
     }
-    pulley (pulley_teeth); 
-    translate([0,0,-5]){
-       
-        gear (number_of_teeth=gear_teeth,
-            circular_pitch=100,
-            pressure_angle=30,
-            clearance = 0.2,
-            gear_thickness = 5,
+    translate([0,0,pulley_full_height]){
+        difference(){
+            cylinder(d=pulley_OD + idler_ht*2, h=gear_distance);
+            cylinder(d=inner_d, h=gear_distance);
+        }
+    }
+    pulley (pulley_teeth, pulley_OD); 
+    translate([0,0,-gear_distance]){
+        difference(){
+            cylinder(d= pulley_OD + idler_ht*2, h=gear_distance);
+            cylinder(d=inner_d, h=gear_distance);
+        }
+    }
+    translate([0,0,-gear_thickness - gear_distance]){
+        gear (
+            number_of_teeth = gear_teeth,
+            circular_pitch = 360 * gear_diameter/gear_teeth,
+            gear_thickness = gear_thickness,
             rim_thickness = 5,
             rim_width = 0,
-            hub_thickness = 5,
             hub_diameter = 0,
-            bore_diameter = inner_d,
-            circles=0,
-            twist = 0/teeth);
+            bore_diameter = inner_d
+        );
     }
+    translate([0,0,-gear_thickness-gear_distance-5]){
 
-    translate([0,0,-10]){
-
-    ball_bearing_inside_half(
-        balls = balls, 
-        height = 10,
-        additional_balls_space = 0.2, 
-        shaft_diameter = 6,
-        additional_space = 0.5
-      );
+        ball_bearing_inside_half_top(
+            balls = balls, 
+            height = 10,
+            additional_balls_space = 0.2, 
+            shaft_diameter = 6,
+            additional_space = 0.5
+        );
     }
     
 }
@@ -82,12 +86,12 @@ union(){
 
 // Main Module
 
-    module pulley(p_teeth)
+    module pulley(p_teeth, pulley_OD)
 	{
         motor_shaft = inner_d;
         additional_tooth_width = 0.2; //mm
         additional_tooth_depth = 0.6; //mm
-        pulley_OD = (2*((p_teeth*2)/(3.14159265*2)-0.254));
+        
         tooth_depth = 0.764;
         tooth_width = 1.494;
         echo (str("Number of teeth = ",p_teeth,"; Pulley Outside Diameter = ",pulley_OD,"mm "));
@@ -149,12 +153,11 @@ union(){
 module ball_bearing_inside_half_top(balls, height, additional_balls_space = 0.1,inner_shift_radius = 0, shaft_diameter = 0, additional_space = 0) {
     ball_radius = 3;
     inner_shift_radius = inner_shift_radius == 0 ?  ball_radius/4 : inner_shift_radius;
-    echo(str("inner_shift_radius:", inner_shift_radius));
     base_radius = (2*((balls*ball_radius)/(3.14159265*2)+additional_balls_space)) ;
     inside_radius = base_radius - inner_shift_radius;
-    echo(str("Inside radius:", inside_radius));
+    echo(str("Ball Bearing Inside diameter: ", inside_radius*2));
     difference(){
-        translate([0, 0, -height/2])
+        translate([0, 0, additional_space])
         difference(){
             cylinder(r=inside_radius, h=height/2 - additional_space, $fn=quality);
             cylinder(d=shaft_diameter, h=height/2 - additional_space, $fn=16);
@@ -166,12 +169,12 @@ module ball_bearing_inside_half_top(balls, height, additional_balls_space = 0.1,
 module ball_bearing_inside_half(balls, height, additional_balls_space = 0.1,inner_shift_radius = 0, shaft_diameter = 0, additional_space = 0) {
     ball_radius = 3;
     inner_shift_radius = inner_shift_radius == 0 ?  ball_radius/4 : inner_shift_radius;
-    echo(str("inner_shift_radius:", inner_shift_radius));
     base_radius = (2*((balls*ball_radius)/(3.14159265*2)+additional_balls_space)) ;
     inside_radius = base_radius - inner_shift_radius;
-    echo(str("Inside radius:", inside_radius));
+    echo(str("Ball Bearing Inside diameter: ", inside_radius*2));
+    translate([0, 0, height/2])
     difference(){
-        translate([0, 0, additional_space])
+        translate([0, 0, -height/2])
         difference(){
             cylinder(r=inside_radius, h=height/2 - additional_space, $fn=quality);
             cylinder(d=shaft_diameter, h=height/2 - additional_space, $fn=16);
@@ -183,10 +186,9 @@ module ball_bearing_inside_half(balls, height, additional_balls_space = 0.1,inne
 module ball_bearing_inside(balls, height, additional_balls_space = 0.1,inner_shift_radius = 0, shaft_diameter = 0) {
     ball_radius = 3;
     inner_shift_radius = inner_shift_radius == 0 ?  ball_radius/4 : inner_shift_radius;
-    echo(str("inner_shift_radius:", inner_shift_radius));
     base_radius = (2*((balls*ball_radius)/(3.14159265*2)+additional_balls_space)) ;
     inside_radius = base_radius - inner_shift_radius;
-    echo(str("Inside radius:", inside_radius));
+    echo(str("Ball Bearing Inside diameter: ", inside_radius*2));
     difference(){
         translate([0, 0, -height/2]) 
         difference(){
@@ -202,7 +204,7 @@ module ball_bearing_outside(balls, height, additional_balls_space = 0.1, additio
     inner_shift_radius = inner_shift_radius == 0 ?  ball_radius/4 : inner_shift_radius;
     base_radius = (2*((balls*ball_radius)/(3.14159265*2)+additional_balls_space)) ;
     outside_radius = base_radius + ball_radius + additional_radius;
-    echo(str("Outside radius:", outside_radius));
+    echo(str("Ball Bearing Outside diameter: ", outside_radius*2));
     difference(){
         difference(){
             translate([0, 0, -height/2]) 
@@ -219,8 +221,8 @@ module ball_bearing_pad(balls, height, additional_balls_space = 0.1, additional_
     balls_spacing = (2*((balls*ball_radius)/(3.14159265*2)+additional_balls_space)) ;
     inside_radius = balls_spacing - ball_radius - additional_radius;
     outside_radius = balls_spacing + ball_radius + additional_radius;
-    echo(str("Inside radius:", inside_radius));
-    echo(str("Outside radius:", outside_radius));
+    echo(str("Inside radius: ", inside_radius));
+    echo(str("Outside radius: ", outside_radius));
     difference(){
         cylinder(r=outside_radius, h=height, $fn=quality);
         bearing_inner(balls, additional_balls_space);  

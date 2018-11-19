@@ -20,10 +20,10 @@ GT2_WM = tooth_spacing (2,0.254);
 
 // tuneable constants
 
-teeth = 24;			// Number of teeth, standard Mendel T5 belt = 8, gives Outside Diameter of 11.88mm
+teeth = 28;			// Number of teeth, standard Mendel T5 belt = 8, gives Outside Diameter of 11.88mm
 profile = 12;		// 1=MXL 2=40DP 3=XL 4=H 5=T2.5 6=T5 7=T10 8=AT5 9=HTD_3mm 10=HTD_5mm 11=HTD_8mm 12=GT2_2mm 13=GT2_3mm 14=GT2_5mm
 
-motor_shaft = 5.3; //NEMA17 motor shaft exact diameter = 5
+motor_shaft = 5.1; //NEMA17 motor shaft exact diameter = 5
 m3_dia = 0;		// 3mm hole diameter
 m3_nut_hex = 1;		// 1 for hex, 0 for square nut
 m3_nut_flats = 5.7;	// normal M3 hex nut exact width = 5.5
@@ -34,9 +34,9 @@ retainer_ht = 1.5;	// height of retainer flange over pulley, standard = 1.5
 idler = 1;			// Belt retainer below teeth, 0 = No, 1 = Yes
 idler_ht = 1;		// height of idler flange over pulley, standard = 1.5
 
-pulley_t_ht = 8;	// length of toothed part of pulley, standard = 12
+pulley_t_ht = 7;	// length of toothed part of pulley, standard = 12
 pulley_b_ht = 0;		// pulley base height, standard = 8. Set to same as idler_ht if you want an idler but no pulley.
-pulley_b_dia = 20;	// pulley base diameter, standard = 20
+pulley_b_dia = 16;	// pulley base diameter, standard = 20
 no_of_nuts = 0;		// number of captive nuts required, standard = 1
 nut_angle = 90;		// angle between nuts, standard = 90
 nut_shaft_distance = 1.2;	// distance between inner face of nut and shaft, can be negative.
@@ -68,38 +68,14 @@ GT2_5mm_pulley_dia = tooth_spacing (5,0.5715);
 
 
 // The following calls the pulley creation part, and passes the pulley diameter and tooth width to that module
-union(){
-    difference(){
-if ( profile == 1 ) { pulley ( "MXL" , MXL_pulley_dia , 0.508 , 1.321 ); }
-if ( profile == 2 ) { pulley ( "40 D.P." , 40DP_pulley_dia , 0.457 , 1.226 ); }
-if ( profile == 3 ) { pulley ( "XL" , XL_pulley_dia , 1.27, 3.051 ); }
-if ( profile == 4 ) { pulley ( "H" , H_pulley_dia ,1.905 , 5.359 ); }
-if ( profile == 5 ) { pulley ( "T2.5" , T2_5_pulley_dia , 0.7 , 1.678 ); }
-if ( profile == 6 ) { pulley ( "T5" , T5_pulley_dia , 1.19 , 3.264 ); }
-if ( profile == 7 ) { pulley ( "T10" , T10_pulley_dia , 2.5 , 6.13 ); }
-if ( profile == 8 ) { pulley ( "AT5" , AT5_pulley_dia , 1.19 , 4.268 ); }
-if ( profile == 9 ) { pulley ( "HTD 3mm" , HTD_3mm_pulley_dia , 1.289 , 2.27 ); }
-if ( profile == 10 ) { pulley ( "HTD 5mm" , HTD_5mm_pulley_dia , 2.199 , 3.781 ); }
-if ( profile == 11 ) { pulley ( "HTD 8mm" , HTD_8mm_pulley_dia , 3.607 , 6.603 ); }
-if ( profile == 12 ) { pulley ( "GT2 2mm" , GT2_2mm_pulley_dia , 0.764 , 1.494 ); }
-if ( profile == 13 ) { pulley ( "GT2 3mm" , GT2_3mm_pulley_dia , 1.169 , 2.31 ); }
-if ( profile == 14 ) { pulley ( "GT2 5mm" , GT2_5mm_pulley_dia , 1.969 , 3.952 ); }
-    translate([0,0,7]){cylinder(r=4.15,h=6,center=true);}
-}    
-
-    translate([0,0,-6]){
-        difference(){
-            cylinder(r=4,h=12,center=true,$fn=24);
-            cylinder(r=2.65,h=12,center=true,$fn=24);
-        }
+difference(){
+    union(){
+        pulley ( "GT2 2mm" , GT2_2mm_pulley_dia , 0.764 , 1.494 );
+        translate([0,0,-5]) cylinder(r=6.5,h=10,center=true,$fn=24);
+        translate([0,0,13.5]) cylinder(r=10,h=10,center=true,$fn=24);
     }
-    
-    translate([0,0,9.5+5]){
-        difference(){
-            cylinder(r=9,h=10,center=true,$fn=48);
-            cylinder(r=4.15,h=10,center=true,$fn=24);
-        }
-    }
+    translate([0,0,-3]) cylinder(r=4.1,h=14,center=true,$fn=24);
+    translate([0,0,13.5]) cylinder(r=2.55,h=10,center=true,$fn=24);
 }
 
 // Functions
