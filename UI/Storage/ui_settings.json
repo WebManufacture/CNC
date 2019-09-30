@@ -1,0 +1,8 @@
+{
+	"compileSettings" : {},
+	"cncList" : [ "pcb", "pcbcnc2", "robopainter" ],
+	"defaultCnc" : "robopainter",
+	"lastCnc": "pcb",
+	"gerberXRatio" : "0.01",
+	"gerberYRatio" : "0.01"
+}

@@ -1,0 +1,161 @@
+[print]
+name = Cura
+defaultQuality = UuucYIBOqUc8xB3Yuka0RzC5zHbzya1g
+travelSpeedMin = 100
+travelSpeedMax = 160
+firstLayerSpeedMin = 60
+firstLayerSpeedMax = 120
+infillSpeedMin = 60
+infillSpeedMax = 120
+skinSpeedMin = 60
+skinSpeedMax = 120
+infillType = 1
+innerPerimeterMin = 80
+innerPerimeterMax = 140
+outerPerimeterMin = 60
+outerPerimeterMax = 120
+printSpeedMin = 80
+printSpeedMax = 140
+nozzleDiameter = 0
+gcodeFlavour = 0
+retractionCombing = True
+combing = 1
+multiVolumeOverlap = 0
+cutOffObjectBottom = 0
+shellThickness = 1.5
+infillTopBottomThickness = 1.5
+infillDensityPercent = 20
+supportType = 0
+platformAdhesion = 0
+dualExtrusion = 0
+wipeAndPrimeTower = True
+oozeShield = False
+enableRetraction = True
+retractionSpeed = 100
+retractionDistance = 4
+multiExtruderSwitchAmount = 16
+startGCode = """
+; Default start code
+G28 ; Home extruder
+G1 Z15 F{Z_TRAVEL_SPEED}
+M107 ; Turn off fan
+G90 ; Absolute positioning
+M82 ; Extruder in absolute mode
+; Activate all used extruder
+{IF_EXT0}M104 T0 S{TEMP0}
+G92 E0 ; Reset extruder position
+; Wait for all used extruders to reach temperature
+{IF_EXT0}M109 T0 S{TEMP0}
+"""
+endGCode = """
+; Default end code
+;G1 X0 Y0 Z130 ; Get extruder out of way. Uncomment to use!
+M107 ; Turn off fan
+; Disable all extruder
+G91 ; Relative positioning
+{IF_EXT0}T0
+{IF_EXT0}G1 E-1 ; Reduce filament pressure
+M104 T0 S0
+G90 ; Absolute positioning
+G92 E0 ; Reset extruder position
+M140 S0 ; Disable heated bed
+M84 ; Turn steppers off
+"""
+preSwitchExtruderCode = 
+postSwitchExtruderCode = 
+wipeAndPrimeTowerVolume = 15
+retractionMinimumTravel = 1.5
+minimumExtrusionBeforeRetract = 0.02
+zhop = 0
+skirtLineCount = 1
+skirtDistance = 3
+skirtMinimumLength = 150
+solidInfillTop = True
+solidInfillBottom = True
+infillOverlapPercent = 20
+supportStructureType = 0
+supportOverhang = 60
+supportFillPercent = 30
+supportDistanceXY = 0.7
+supportDistanceZ = 0.1
+supportExtruder = -1
+spiralizeOuterContour = False
+brimWidth = 5
+raftExtraMargin = 5
+raftLineSpacing = 1
+raftBaseThickness = 0.3
+raftBaseWidth = 0.7
+raftInterfaceThickness = 0.3
+raftInterfaceLineWidth = 0.2
+raftAirGap = 0
+raftAirGapLayer0 = 0
+raftSurfaceLayer = 1
+fixCombineEverythingA = True
+fixCombineEverythingB = False
+fixKeepOpenFaces = False
+fixExtensiveStitching = False
+fanFullAtHeight = 0.5
+perimeterBeforeInfill = True
+minimumSpeed = 10
+coolHeadLift = False
+numQuality = 10
+[quality_0]
+name = 0.8 mm
+signature = VEi9bGj3yevYW4HGSwVowN2GuGHNWNXA
+layerHeight = 0.8
+layer0widthPercent = 100
+firstLayerHeight = 0.3
+[quality_1]
+name = 0.5 mm
+signature = RzJ8gx2uj0zOSpG8KFvBsfkj7zGAWydt
+layerHeight = 0.5
+layer0widthPercent = 100
+firstLayerHeight = 0.3
+[quality_2]
+name = 0.4 mm
+signature = h6hAlGTU4DtU1dMkQLF3gnWBLxoaoGx3
+layerHeight = 0.4
+layer0widthPercent = 100
+firstLayerHeight = 0.4
+[quality_3]
+name = 0.35 mm
+signature = EIZBgmZMY7Y5SYNee8IbAu2EjXZnK6Fv
+layerHeight = 0.35
+layer0widthPercent = 100
+firstLayerHeight = 0.35
+[quality_4]
+name = 0.3 mm
+signature = XMdZvjWqAKFu65SPKv5iIdElSpazz7Rq
+layerHeight = 0.3
+layer0widthPercent = 100
+firstLayerHeight = 0.3
+[quality_5]
+name = 0.25 mm
+signature = tWzu6KaLcvIlcDVjkozqZEKMjB0YeRm5
+layerHeight = 0.25
+layer0widthPercent = 100
+firstLayerHeight = 0.25
+[quality_6]
+name = 0.2 mm
+signature = lWkVqhgu8Z0Md1SefqJaMNHCi6h4hNhR
+layerHeight = 0.2
+layer0widthPercent = 100
+firstLayerHeight = 0.2
+[quality_7]
+name = 0.15 mm
+signature = UuucYIBOqUc8xB3Yuka0RzC5zHbzya1g
+layerHeight = 0.15
+layer0widthPercent = 100
+firstLayerHeight = 0.2
+[quality_8]
+name = 0.1 mm
+signature = TekWY4UduND0Ix3wciaovoaNenb9BuEw
+layerHeight = 0.1
+layer0widthPercent = 100
+firstLayerHeight = 0.1
+[quality_9]
+name = 0.05 mm
+signature = KzwGFifcS1tYsKWEFUdJGXPBZswVvqcv
+layerHeight = 0.05
+layer0widthPercent = 100
+firstLayerHeight = 0.1

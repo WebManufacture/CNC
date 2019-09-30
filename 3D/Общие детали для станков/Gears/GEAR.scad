@@ -3,24 +3,24 @@ use <../libraries/MCAD/involute_gears.scad>
 //test_gears();
 //Gear();
 
-pressure_angle = 28;
+pressure_angle = 25; //Normal - 28
 hub_diameter = 0;
-rim_width = 0;
-circles=6;
-teeth=160;
-pitch=100;
+rim_width=0;
+circles=0;
+teeth=20;
+pitch_diameter=25;
 twist=0;
 height=5;
-bore_diameter = 10;
+bore_diameter = 6;
 
 gear (number_of_teeth=teeth,
-    circular_pitch=pitch,
+    diametral_pitch=teeth/pitch_diameter,
     pressure_angle=pressure_angle,
     clearance = 0.2,
     gear_thickness = height,
     rim_thickness = height,
     rim_width = rim_width,
-    hub_thickness = height,
+    hub_thickness = height*2,
     hub_diameter = hub_diameter,
     bore_diameter = bore_diameter,
     circles=circles,

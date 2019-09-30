@@ -1,0 +1,50 @@
+
+----------- Project includec - STM8 Cosmic - Configuration Debug -------------
+Removing intermediate files ... Done!
+
+----------- Project includec - STM8 Cosmic - Configuration Debug -------------
+
+Compiling interrupts.c...
+cxstm8 +mods0 +debug -pxp -pp -l -i"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Hstm8" -i"C:\Program Files (x86)\STMicroelectronics\st_toolset\include" -i..\libs\STM8S_StdPeriph_driver\inc  -clDebug\ -coDebug\ interrupts.c
+interrupts.c:
+
+Compiling utils.c...
+cxstm8 +mods0 +debug -pxp -pp -l -i"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Hstm8" -i"C:\Program Files (x86)\STMicroelectronics\st_toolset\include" -i..\libs\STM8S_StdPeriph_driver\inc  -clDebug\ -coDebug\ utils.c
+utils.c:
+
+Compiling tinydebug.c...
+cxstm8 +mods0 +debug -pxp -pp -l -i"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Hstm8" -i"C:\Program Files (x86)\STMicroelectronics\st_toolset\include" -i..\libs\STM8S_StdPeriph_driver\inc  -clDebug\ -coDebug\ tinydebug.c
+tinydebug.c:
+
+Compiling routing.c...
+cxstm8 +mods0 +debug -pxp -pp -l -i"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Hstm8" -i"C:\Program Files (x86)\STMicroelectronics\st_toolset\include" -i..\libs\STM8S_StdPeriph_driver\inc  -clDebug\ -coDebug\ routing.c
+routing.c:
+
+Compiling generalconfig.c...
+cxstm8 +mods0 +debug -pxp -pp -l -i"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Hstm8" -i"C:\Program Files (x86)\STMicroelectronics\st_toolset\include" -i..\libs\STM8S_StdPeriph_driver\inc  -clDebug\ -coDebug\ generalconfig.c
+generalconfig.c:
+
+Compiling uart.c...
+cxstm8 +mods0 +debug -pxp -pp -l -i"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Hstm8" -i"C:\Program Files (x86)\STMicroelectronics\st_toolset\include" -i..\libs\STM8S_StdPeriph_driver\inc  -clDebug\ -coDebug\ uart.c
+uart.c:
+
+Compiling events.c...
+cxstm8 +mods0 +debug -pxp -pp -l -i"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Hstm8" -i"C:\Program Files (x86)\STMicroelectronics\st_toolset\include" -i..\libs\STM8S_StdPeriph_driver\inc  -clDebug\ -coDebug\ events.c
+events.c:
+
+Compiling buttons.c...
+cxstm8 +mods0 +debug -pxp -pp -l -i"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Hstm8" -i"C:\Program Files (x86)\STMicroelectronics\st_toolset\include" -i..\libs\STM8S_StdPeriph_driver\inc  -clDebug\ -coDebug\ buttons.c
+buttons.c:
+
+Compiling stm8_interrupt_vector.c...
+cxstm8 +mods0 +debug -pxp -pp -l -i"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Hstm8" -i"C:\Program Files (x86)\STMicroelectronics\st_toolset\include" -i..\libs\STM8S_StdPeriph_driver\inc  -clDebug\ -coDebug\ stm8_interrupt_vector.c
+stm8_interrupt_vector.c:
+
+Running Linker
+clnk -l"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Lib" -l"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Lib" -l..\libs\STM8S_StdPeriph_driver\inc  -o Debug\includec.sm8 -mDebug\includec.map Debug\includec.lkf 
+#error clnk Debug\includec.lkf:58 Debug\uart.o: symbol f_UART2_RX_IRQHandler multiply defined (Debug\interrupts.o)
+#error clnk Debug\includec.lkf:58 Debug\uart.o: symbol f_UART2_TX_IRQHandler multiply defined (Debug\interrupts.o)
+ The command: "clnk -l"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Lib" -l"C:\Program Files (x86)\COSMIC\CXSTM8_16K\Lib" -l..\libs\STM8S_StdPeriph_driver\inc  -o Debug\includec.sm8 -mDebug\includec.map Debug\includec.lkf " has failed, the returned value is: 1
+exit code=1.
+
+includec.elf - 3 error(s), 0 warning(s)

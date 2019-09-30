@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	    <link rel="stylesheet" href="http://services.web-manufacture.net/Styles/System.default.css"/> 
+		<script type="text/javascript" src="http://services.web-manufacture.net/Base/v1.5?join=true"></script>
+		<script src="http://services.web-manufacture.net/ilab-socket.js" type="text/javascript"></script>
+		<style type="text/css">
+		    .div
+		    {
+		        border: navy 2px;
+		       
+		    }
+		</style>
+	
+	</head>
+	<body>
+	    <div class = 'div' id='commandDiv' contenteditable="true" onkeydown="keydown(event)">
+	        
+	    </div>
+	    <div class = 'div' id='consoleDiv'>
+	        
+	    </div>
+        <script type="text/javascript">
+            var SerialService;
+            WS.DOMload( function(){
+                var devicePort = 'COM4';
+                var events = new EventEmitter();
+                
+                var command;
+                
+                window.keydown = function(event){
+                    if (event.key != 'Enter') return;
+                    command = commandDiv.textContent + '\r';
+                    SerialService.Send(devicePort, command, 'ascii').then(function(){
+                        console.log('command '+ command + ' was sent');
+                    }).catch(function(error){
+                        console.log(error);
+                    });
+                    commandDiv.textContent = '';
+                    
+                };
+                
+                consoleDiv.innerHTML = '';
+                
+                ServiceProxy.Connect("ws://localhost:5700/SerialService").then(function(service){
+                    SerialService = service;
+                    SerialService.OpenPort(devicePort, {baudRate: 115200}).then(function(portName){
+                        SerialService.on("serial-string-" + devicePort, function(data){
+                            consoleDiv.innerHTML += data + '\n';
+                        });
+                        events.emit('port was opened', portName);
+                        window.onbeforeunload = function(){
+                            var message;
+                            SerialService.ClosePort(devicePort, {baudRate: 115200}).then(function(){
+                                message = "Порт закрыт. Покинуть страницу?";
+                            }).catch(function(error){
+                                console.log(error);
+                                message =  "Не удалось закрыть порт. Покинуть страницу?";
+                            });
+                            var ret = function() {
+                                
+                                if(message){return message}
+                                else{
+                                   setTimeout(ret, 0); 
+                                }
+                                
+                            }
+                            ret();
+                        };
+                        
+                    }).catch(function(error){
+                        console.log(error);
+                    });
+                }).catch(function(error){
+                    console.log(error);
+                });
+                
+            });
+            
+            
+		</script>
+    </body>
+</html>

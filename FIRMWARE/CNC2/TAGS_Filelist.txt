@@ -1,0 +1,20 @@
+..\include\utils.c
+..\include\uart.c
+..\include\generalconfig.c
+motors.h
+motors.c
+deviceconfig.h
+commands.h
+commands.c
+main.c
+stm8_interrupt_vector.c
+..\include\consts.h
+..\include\consts105c6.h
+..\include\generalconfig.h
+..\include\gpio.h
+..\include\macro.h
+..\include\uart.h
+..\include\utils.h
+c:\cosmic\hstm8\mods0.h
+c:\program files (x86)\stmicroelectronics\st_toolset\include\stm8s105c6.h
+c:\program files (x86)\stmicroelectronics\st_toolset\include\stm8s105c_s.h

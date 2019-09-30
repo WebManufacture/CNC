@@ -1,0 +1,11 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="2">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="280" startPos="359" endPos="359" selMode="0" lang="C" encoding="-1" filename="..\Include\utils.c" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="192" startPos="51" endPos="51" selMode="0" lang="C++" encoding="-1" filename="..\Include\DeviceConfig.h" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="2161" startPos="473" endPos="473" selMode="0" lang="&#x041E;&#x0431;&#x044B;&#x0447;&#x043D;&#x044B;&#x0439; &#x0422;&#x0435;&#x043A;&#x0441;&#x0442;" encoding="-1" filename="..\Include\111.txt" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1969" startPos="236" endPos="236" selMode="0" lang="Batch" encoding="-1" filename="..\Include\Build.cmd" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>

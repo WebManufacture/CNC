@@ -53,8 +53,6 @@
 #define FAN_THERMO_MAX_TEMP 60
 #define FAN_THERMO_THERMISTOR_PIN -1
 #define FAN_THERMO_THERMISTOR_TYPE 1
-#undef X_MIN_PIN
-#define X_MIN_PIN ORIG_X_MAX_PIN
 #undef X_MAX_PIN
 #define X_MAX_PIN -1
 
@@ -111,7 +109,7 @@
 #define EXT0_ADVANCE_K 0
 #define EXT0_ADVANCE_L 0
 #define EXT0_ADVANCE_BACKLASH_STEPS 0
-#define EXT0_WAIT_RETRACT_TEMP 150
+#define EXT0_WAIT_RETRACT_TEMP 20
 #define EXT0_WAIT_RETRACT_UNITS 0
 #define EXT0_SELECT_COMMANDS ""
 #define EXT0_DESELECT_COMMANDS ""
@@ -161,7 +159,7 @@
 
 // ############# Heated bed configuration ########################
 
-#define HAVE_HEATED_BED 1
+#define HAVE_HEATED_BED 0
 #define HEATED_BED_MAX_TEMP 130
 #define SKIP_M190_IF_WITHIN 50
 #define HEATED_BED_SENSOR_TYPE 14
@@ -176,9 +174,9 @@
 #define HEATED_BED_PID_DGAIN 290
 #define HEATED_BED_PID_MAX 255
 #define HEATED_BED_DECOUPLE_TEST_PERIOD 0
-#define MIN_EXTRUDER_TEMP 150
+#define MIN_EXTRUDER_TEMP 20
 #define MAXTEMP 300
-#define MIN_DEFECT_TEMPERATURE -10
+#define MIN_DEFECT_TEMPERATURE -210
 #define MAX_DEFECT_TEMPERATURE 310
 
 // ##########################################################################################
@@ -233,7 +231,7 @@ It also can add a delay to wait for spindle to run on full speed.
 // ################ Endstop configuration #####################
 
 #define ENDSTOP_PULLUP_X_MIN true
-#define ENDSTOP_X_MIN_INVERTING false
+#define ENDSTOP_X_MIN_INVERTING true
 #define MIN_HARDWARE_ENDSTOP_X true
 #define ENDSTOP_PULLUP_Y_MIN true
 #define ENDSTOP_Y_MIN_INVERTING true
@@ -361,7 +359,7 @@ It also can add a delay to wait for spindle to run on full speed.
 #define X2_STEP_PIN   ORIG_E1_STEP_PIN
 #define X2_DIR_PIN    ORIG_E1_DIR_PIN
 #define X2_ENABLE_PIN ORIG_E1_ENABLE_PIN
-#define FEATURE_TWO_YSTEPPER 0
+#define FEATURE_TWO_YSTEPPER 1
 #define Y2_STEP_PIN   ORIG_E1_STEP_PIN
 #define Y2_DIR_PIN    ORIG_E1_DIR_PIN
 #define Y2_ENABLE_PIN ORIG_E1_ENABLE_PIN
@@ -536,7 +534,7 @@ Values must be in range 1..255
 
 ========== Start configuration string ==========
 {
-    "editMode": 0,
+    "editMode": 1,
     "processor": 0,
     "baudrate": 115200,
     "bluetoothSerial": -1,
@@ -572,7 +570,7 @@ Values must be in range 1..255
             "pidD": 40,
             "advanceK": 0,
             "advanceL": 0,
-            "waitRetractTemp": 150,
+            "waitRetractTemp": 20,
             "waitRetractUnits": 0,
             "waitRetract": 0,
             "stepsPerMM": 370,
@@ -608,7 +606,7 @@ Values must be in range 1..255
     ],
     "uiLanguage": 0,
     "uiController": 0,
-    "xMinEndstop": 2,
+    "xMinEndstop": 1,
     "yMinEndstop": 1,
     "zMinEndstop": 2,
     "xMaxEndstop": 0,
@@ -713,7 +711,7 @@ Values must be in range 1..255
         "dir": "ORIG_E1_DIR_PIN",
         "enable": "ORIG_E1_ENABLE_PIN"
     },
-    "mirrorY": 0,
+    "mirrorY": "1",
     "mirrorYMotor": {
         "name": "Extruder 1",
         "step": "ORIG_E1_STEP_PIN",
@@ -741,7 +739,7 @@ Values must be in range 1..255
     "servo2Pin": -1,
     "servo3Pin": -1,
     "featureWatchdog": "0",
-    "hasHeatedBed": "1",
+    "hasHeatedBed": "0",
     "enableZProbing": "0",
     "extrudeMaxLength": 200,
     "homeOrder": "HOME_ORDER_XYZ",
@@ -881,7 +879,7 @@ Values must be in range 1..255
     "xEndstopRetestFactor": 3,
     "yEndstopRetestFactor": 3,
     "zEndstopRetestFactor": 3,
-    "xMinPin": "ORIG_X_MAX_PIN",
+    "xMinPin": "ORIG_X_MIN_PIN",
     "yMinPin": "ORIG_Y_MIN_PIN",
     "zMinPin": "ORIG_Z_MIN_PIN",
     "xMaxPin": -1,

@@ -1,0 +1,26 @@
+;	STMicroelectronics dependencies file
+
+[Version]
+Keyword=ST7Project
+Number=1.3
+
+[Root.Source Files...\include\generalconfig.c.Config.0]
+ExternDep= ..\include\generalconfig.c  "C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\HSTM8\mods0.h"  DeviceConfig.h ..\Include\consts105C6.h  "C:\Program Files (x86)\STMicroelectronics\st_toolset\include\STM8S105C6.h"  "C:\Program Files (x86)\STMicroelectronics\st_toolset\include\STM8S105C_S.h"  ..\Include\Consts.h ..\Include\Macro.h ..\Include\gpio.h  ..\Include\GeneralConfig.h ..\Include\utils.h
+
+[Root.Source Files...\include\utils.c.Config.0]
+ExternDep= ..\include\utils.c C:\COSMIC\Hstm8\mods0.h DeviceConfig.h  ..\Include\consts105C6.h  "C:\Program Files (x86)\STMicroelectronics\st_toolset\include\STM8S105C6.h"  "C:\Program Files (x86)\STMicroelectronics\st_toolset\include\STM8S105C_S.h"  ..\Include\Consts.h ..\Include\Macro.h ..\Include\gpio.h  ..\Include\GeneralConfig.h ..\Include\utils.h
+
+[Root.Source Files.motors.c.Config.0]
+ExternDep= motors.c C:\COSMIC\Hstm8\mods0.h DeviceConfig.h  ..\Include\consts105C6.h  "C:\Program Files (x86)\STMicroelectronics\st_toolset\include\STM8S105C6.h"  "C:\Program Files (x86)\STMicroelectronics\st_toolset\include\STM8S105C_S.h"  ..\Include\Consts.h ..\Include\Macro.h ..\Include\gpio.h Motors.h Commands.h  Uart.h
+
+[Root.Source Files.uart.c.Config.0]
+ExternDep= uart.c "C:\Program Files\COSMIC\CXSTM8_16K\Hstm8\mods0.h"  DeviceConfig.h ..\Include\consts105C6.h  "C:\Program Files\STMicroelectronics\st_toolset\include\STM8S105C6.h"  "C:\Program Files\STMicroelectronics\st_toolset\include\STM8S105C_S.h"  ..\Include\Consts.h ..\Include\Macro.h ..\Include\gpio.h ..\Include\utils.h
+
+[Root.Source Files.mainnew.c.Config.0]
+ExternDep= mainnew.c "C:\Program Files\COSMIC\CXSTM8_16K\Hstm8\mods0.h"  DeviceConfig.h ..\Include\consts105C6.h  "C:\Program Files\STMicroelectronics\st_toolset\include\STM8S105C6.h"  "C:\Program Files\STMicroelectronics\st_toolset\include\STM8S105C_S.h"  ..\Include\Consts.h ..\Include\Macro.h ..\Include\gpio.h uart.h motors.h  Commands.h commands.h ..\Include\utils.h
+
+[Root.Source Files.commands.c.Config.0]
+ExternDep= commands.c "C:\Program Files\COSMIC\CXSTM8_16K\Hstm8\mods0.h"  DeviceConfig.h ..\Include\consts105C6.h  "C:\Program Files\STMicroelectronics\st_toolset\include\STM8S105C6.h"  "C:\Program Files\STMicroelectronics\st_toolset\include\STM8S105C_S.h"  ..\Include\Consts.h ..\Include\Macro.h ..\Include\gpio.h Uart.h Motors.h  Commands.h ..\Include\Utils.h
+
+[Root.Source Files.stm8_interrupt_vector.c.Config.0]
+ExternDep= stm8_interrupt_vector.c  "C:\Program Files\COSMIC\CXSTM8_16K\Hstm8\mods0.h"

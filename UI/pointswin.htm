@@ -1,0 +1,166 @@
+<div id='PointsWin' class='window invisible' title='Points:'>
+		<div class='btn-ira delete deleteall-btn' onclick='PointsWin.DeleteAll()' >
+				Clear All
+		</div>
+</div>
+<style type='text/css'>
+	
+	.point {
+		cursor: pointer;
+		padding-left: 10px;
+	}
+	
+	.point:hover {
+		background-color: #DDD;
+	}
+    
+    .btn-ira.deleteall-btn {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 5px;
+        width: 60%;
+        background-color: #FCC;
+        border-color: #FCC;
+        color: navy;
+        height: 13px;
+        font-size: 11px;
+    }
+   .delpnt{
+       background-color: black;
+       height: 10px;
+       width: 10px;
+       display: inline-block;
+       margin-left: -25px;
+       
+    }
+</style>
+<script type='text/javascript'>
+	WS.Body.add(PointsWin);
+	
+	PointsWin.FixPoint = function (coord) {
+		var pnt = PointsWin._addPoint(coord);
+		PointsWin.Save();
+		return pnt;
+	};
+	
+	PointsWin._addPoint = function (coord) {
+	    var delpoint = DOM.div(".delpnt");
+	    delpoint.onclick = PointsWin.DeletePnt;
+	    var point = DOM.div(".point");
+		if (!coord){
+			coord = {x : lx, y: ly, z:lz};	
+		}
+		if (!coord.command) coord.command = 'G';
+		point.coord = coord;
+		var cdiv = point.div(".command", coord.command);
+		cdiv.ondblclick = function (event){
+			point.del();
+			PointsWin.Save();
+			event.stopPropagation();
+		}
+		if (Number.isFinite(coord.x)){
+		    point.add(delpoint);
+			point.div(".x-coord", coord.x);
+			point.id = new Date().getTime().toString();
+		}
+		if (Number.isFinite(coord.y)){
+		    point.add(delpoint);
+			point.div(".y-coord", coord.y);
+			point.id = new Date().getTime().toString();
+		}
+		if (Number.isFinite(coord.z)){
+		    point.add(delpoint);
+			point.div(".z-coord", coord.z);
+			point.id = new Date().getTime().toString();
+		}	
+		this.add(point);
+		point.onclick = PointsWin.pointShow;
+		point.ondblclick = PointsWin.pointActivate;
+		return point;
+	};
+	
+	PointsWin.FixXPoint = function () {
+		return PointsWin.FixPoint({command: "X", x: lx});
+	};
+	
+	PointsWin.FixYPoint = function () {
+		return PointsWin.FixPoint({command: "Y", y: ly});
+	};
+	
+	PointsWin.FixZPoint = function () {
+		return PointsWin.FixPoint({command: "Z", z: lz});
+	};
+	
+	PointsWin.getCommand = function(coord){
+		var command = {command : CNC.GCommands.G, speed : CNC.Settings.Speed};
+		if (Number.isFinite(coord.x)){
+			command.x = coord.x;
+		}
+		else{
+			command.x = lx;	
+		}
+		if (Number.isFinite(coord.y)){
+			command.y = coord.y;
+		}
+		else{
+			command.y = ly;	
+		}		if (Number.isFinite(coord.z)){
+			command.z = coord.z;
+		}
+		else{
+			command.z = lz;	
+		}
+		return command;
+	};
+	
+	PointsWin.pointShow = function(){
+		Preview.DisplayPoint(PointsWin.getCommand(this.coord));
+	};
+	
+	
+	PointsWin.pointActivate = function(){
+		CNC.Command(PointsWin.getCommand(this.coord));		
+	};
+	
+	PointsWin.Load = function(){
+		this.all(".point").del();
+		Storage.get("Points.json", function(result){
+			if (result){
+				for (var i = 0; i < result.length; i++){
+					PointsWin._addPoint(result[i]);
+				}
+			}
+		});
+	};
+
+	
+	
+	PointsWin.Save = function(){
+		var result = [];
+		var pnts = this.all(".point");
+		for (var i = 0; i < pnts.length; i++){
+			result.push(pnts[i].coord);
+		}
+		Storage.POST("Points.json", JSON.stringify(result), function(result){
+			if (result){
+				
+			}
+		});
+	};
+	
+	PointsWin.DeleteAll = function (){
+	    this.all(".point").del();
+	    Storage.POST("Points.json", JSON.stringify(), function(){
+	    });
+	    
+	};
+	
+	PointsWin.DeletePnt = function (){
+	    
+        Storage.POST("Points.json", JSON.stringify(), function(){
+	    });
+	}
+	
+	
+	PointsWin.Load();
+</script>
